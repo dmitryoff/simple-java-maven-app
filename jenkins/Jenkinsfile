@@ -26,10 +26,5 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-        stage('dev') {
-            steps {
-                sh 'scp ${NAME}-${VERSION}.jar ubuntu@54.216.16.56:/home/ubuntu'
-            }
-        }
     }
 }
