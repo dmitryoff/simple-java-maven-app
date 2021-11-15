@@ -26,9 +26,12 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-        stage('b') {
+    }
+    agent { label 'master' }
+    stages {
+        stage('build') {
             steps {
-                sh './jenkins/scripts/bash.sh'
+                sh '/var/lib/jenkins/bash.sh'
             }
         }
     }
