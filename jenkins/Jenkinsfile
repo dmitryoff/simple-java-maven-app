@@ -29,11 +29,9 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh' 
             }
         }
-        stage('Dr') {             
-            stage('d') {
-                sshagent (credentials: ['git-hub-ssh-key']) {
-                    sh './bash.sh'
-                }
+        stage('Dr') {       
+            sshagent (credentials: ['git-hub-ssh-key']) {
+                sh './bash.sh'
             }            
         }
     }
