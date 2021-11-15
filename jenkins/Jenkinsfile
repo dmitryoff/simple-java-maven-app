@@ -27,11 +27,4 @@ pipeline {
             }
         }
     }
-    stages {
-        stage('build') {
-            steps {
-                sh '/var/lib/jenkins/bash.sh'
-            }
-        }
-    }
 }
