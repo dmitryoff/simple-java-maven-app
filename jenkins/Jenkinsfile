@@ -7,13 +7,6 @@ pipeline {
     }
     options {
         skipStagesAfterUnstable()
-    }
-    node {
-        stage('d') {
-            sshagent (credentials: ['git-hub-ssh-key']) {
-                sh './bash.sh'
-            }
-        }
     }    
     stages {
         stage('Build') {
@@ -34,6 +27,15 @@ pipeline {
         stage('Deliver') { 
             steps {
                 sh './jenkins/scripts/deliver.sh' 
+            }
+        }
+        stage('Dr') { 
+            node {
+                stage('d') {
+                    sshagent (credentials: ['git-hub-ssh-key']) {
+                        sh './bash.sh'
+                    }
+                }
             }
         }
     }
