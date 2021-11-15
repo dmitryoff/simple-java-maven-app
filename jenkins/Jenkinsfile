@@ -37,11 +37,9 @@ pipeline {
             }
         }
         stage('D') { 
-            node {
-                stage('d') {
-                    sshagent (credentials: ['git-hub-ssh-key']) {
-                        sh './bash.sh'
-                    }
+            stage('d') {
+                sshagent (credentials: ['git-hub-ssh-key']) {
+                    sh './bash.sh'
                 }
             } 
         }
