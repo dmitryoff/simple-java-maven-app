@@ -31,9 +31,10 @@ pipeline {
             }
         }
         stage('d') {
+            agent any
             steps {
                 sshagent (credentials: ['git-hub-ssh-key']) {
-                    sh 'ssh ubuntu@63.35.222.237 mkdir 1213'
+                    sh 'ssh ubuntu@63.35.222.237 echo hello'
                 }    
             }
         }
