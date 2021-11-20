@@ -27,9 +27,7 @@ pipeline {
         stage('Deliver') { 
             steps {
                 sh './jenkins/scripts/deliver.sh'
-                sh 'NAME=`mvn help:evaluate -Dexpression=project.name | grep "^[^\[]"`'
-                sh 'VERSION=`mvn help:evaluate -Dexpression=project.version | grep "^[^\[]"`'
-                sh 'cp target/${NAME}-${VERSION}.jar /opt'
+                sh 'cp target/*.jar /opt'
             }
         }
         stage('d') {
