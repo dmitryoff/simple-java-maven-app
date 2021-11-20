@@ -29,5 +29,10 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh' 
             }
         }
+        stage('d') {
+            sshagent (credentials: ['git-hub-ssh-key']) {
+                sh 'ssh ubuntu@63.35.222.237 mkdir 1213'
+            }
+        }
     }
 }
