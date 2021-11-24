@@ -30,14 +30,5 @@ pipeline {
                 sh 'cp target/*.jar /tmp'
             }
         }
-        stage('d') {
-            agent any
-            steps {
-                sshagent (credentials: ['git-hub-ssh-key']) {
-                    sh 'eval "$(ssh-agent)"'
-                    sh 'ssh ubuntu@63.35.222.237 echo hello'
-                }    
-            }
-        }
     }
 }
