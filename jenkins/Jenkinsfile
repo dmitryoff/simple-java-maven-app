@@ -27,8 +27,7 @@ pipeline {
         stage('Deliver') { 
             steps {
                 sh './jenkins/scripts/deliver.sh'
-                sh 'cp target/*.jar /tmp'
-                sh 'hi'
+                sh 'cp target/*.jar /tmp'                
             }
         }
     }
