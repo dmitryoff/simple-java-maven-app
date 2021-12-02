@@ -25,6 +25,7 @@ pipeline {
             steps {
                 sh './jenkins/scripts/deliver.sh'
                 sh 'cp target/*.jar /tmp'
+                sh 'echo "hi"'
             }
         }
     }
